@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro - G-TEAM</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+        }
+        
+        .register-card {
+            backdrop-filter: blur(16px);
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 25px 45px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .input-field {
+            transition: all 0.3s ease;
+        }
+        
+        .input-field:focus {
+            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.3);
+        }
+        
+        .gradient-btn {
+            background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+            transition: all 0.3s ease;
+        }
+        
+        .gradient-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px -10px rgba(79, 70, 229, 0.6);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex items-center justify-center p-4">
+    <div class="register-card rounded-2xl w-full max-w-md overflow-hidden">
+        <div class="p-8 sm:p-10">
+            <div class="text-center mb-8">
+                <a href="index.html" class="block">
+                    <h1 class="text-4xl font-bold text-gray-800">
+                        <span class="text-indigo-600">G</span>-TEAM
+                    </h1>
+                    <p class="text-gray-500 mt-2">Crie sua conta</p>
+                </a>
+            </div>
+<form class="space-y-6">
+                <div>
+                    <h2 class="text-2xl font-semibold text-gray-800 text-center">Cadastre-se</h2>
+                </div>
+                
+                <div class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Nome Completo</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-feather="user" class="text-gray-400"></i>
+                            </div>
+                            <input 
+                                type="text" 
+                                id="name" 
+                                placeholder="Seu nome completo" 
+                                class="input-field w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                                required>
+                        </div>
+                    </div>
+                    
+                    <div>
+                        <label for="email" class="block text-sm font-medium text-gray-700 mb-1">E-mail</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-feather="mail" class="text-gray-400"></i>
+                            </div>
+                            <input 
+                                type="email" 
+                                id="email" 
+                                placeholder="seu@email.com" 
+                                class="input-field w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                                required>
+                        </div>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="email-error">Por favor, insira um e-mail válido</p>
+                    </div>
+                    
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-gray-700 mb-1">Senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-feather="lock" class="text-gray-400"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="password" 
+                                placeholder="Sua senha" 
+                                class="input-field w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                                required>
+                        </div>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="password-error">A senha deve ter pelo menos 6 caracteres</p>
+                    </div>
+                    
+                    <div>
+                        <label for="confirm-password" class="block text-sm font-medium text-gray-700 mb-1">Confirme sua Senha</label>
+                        <div class="relative">
+                            <div class="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                                <i data-feather="lock" class="text-gray-400"></i>
+                            </div>
+                            <input 
+                                type="password" 
+                                id="confirm-password" 
+                                placeholder="Confirme sua senha" 
+                                class="input-field w-full pl-10 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:border-indigo-500"
+                                required>
+                        </div>
+                        <p class="mt-1 text-sm text-red-500 hidden" id="confirm-password-error">As senhas não coincidem</p>
+                    </div>
+                    
+                    <div class="flex items-center">
+                        <input 
+                            id="terms" 
+                            name="terms" 
+                            type="checkbox" 
+                            class="h-4 w-4 text-indigo-600 focus:ring-indigo-500 border-gray-300 rounded">
+                        <label for="terms" class="ml-2 block text-sm text-gray-700">
+                            Eu concordo com os <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Termos de Serviço</a> e <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500">Política de Privacidade</a>
+                        </label>
+                    </div>
+                    
+                    <button type="submit" class="gradient-btn w-full flex justify-center py-3 px-4 border border-transparent rounded-lg text-sm font-medium text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+                        Cadastrar
+                    </button>
+                </div>
+            </form>
+            
+            <div class="mt-6 text-center text-sm">
+                <p class="text-gray-600">
+                    Já tem uma conta?
+                    <a href="login.html" class="font-medium text-indigo-600 hover:text-indigo-500">Faça login</a>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        feather.replace();
+        
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const password = document.getElementById('password');
+            const confirmPassword = document.getElementById('confirm-password');
+            const terms = document.getElementById('terms');
+            
+            const emailError = document.getElementById('email-error');
+            const passwordError = document.getElementById('password-error');
+            const confirmPasswordError = document.getElementById('confirm-password-error');
+            
+            let isValid = true;
+            
+            // Email validation
+            if (!email.value.includes('@') || !email.value.includes('.')) {
+                email.classList.add('border-red-500');
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                email.classList.remove('border-red-500');
+                emailError.classList.add('hidden');
+            }
+            
+            // Password validation
+            if (password.value.length < 6) {
+                password.classList.add('border-red-500');
+                passwordError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                password.classList.remove('border-red-500');
+                passwordError.classList.add('hidden');
+            }
+            
+            // Confirm password validation
+            if (password.value !== confirmPassword.value) {
+                confirmPassword.classList.add('border-red-500');
+                confirmPasswordError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                confirmPassword.classList.remove('border-red-500');
+                confirmPasswordError.classList.add('hidden');
+            }
+            
+            // Terms validation
+            if (!terms.checked) {
+                terms.parentElement.classList.add('text-red-500');
+                isValid = false;
+            } else {
+                terms.parentElement.classList.remove('text-red-500');
+            }
+            
+            if (isValid) {
+                const btn = document.querySelector('.gradient-btn');
+                btn.innerHTML = '<svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"><circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle><path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg> Cadastrando...';
+                
+                setTimeout(() => {
+                    btn.innerHTML = 'Cadastrar';
+                    alert('Cadastro realizado com sucesso!');
+                    window.location.href = 'login.html';
+                }, 1500);
+            }
+        });
+        
+        // Remove error styles on input
+        document.getElementById('email').addEventListener('input', function() {
+            this.classList.remove('border-red-500');
+            document.getElementById('email-error').classList.add('hidden');
+        });
+        
+        document.getElementById('password').addEventListener('input', function() {
+            this.classList.remove('border-red-500');
+            document.getElementById('password-error').classList.add('hidden');
+        });
+        
+        document.getElementById('confirm-password').addEventListener('input', function() {
+            this.classList.remove('border-red-500');
+            document.getElementById('confirm-password-error').classList.add('hidden');
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>G-TEAM - Masculino</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        .gradient-bg {
+            background: linear-gradient(135deg, #000000 0%, #2d3436 100%);
+        }
+        
+        .category-hover:hover .category-overlay {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .product-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cart-pulse {
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+        
+        .price-original {
+            text-decoration: line-through;
+            color: #9ca3af;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Header -->
+    <header class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="container mx-auto px-4">
+            <div class="flex items-center justify-between py-4">
+                <div class="flex items-center space-x-8">
+                    <div class="text-2xl font-bold">
+                        <span class="text-black">G-</span>
+                        <span class="text-gray-800">TEAM</span>
+                    </div>
+                    
+                    <nav class="hidden md:block">
+                        <ul class="flex space-x-6">
+                            <li><a href="#" class="text-gray-800 hover:text-black font-medium transition">Início</a></li>
+                            <li><a href="#" class="text-black font-bold transition">Masculino</a></li>
+                            <li><a href="#" class="text-gray-800 hover:text-black font-medium transition">Feminino</a></li>
+                            <li><a href="#" class="text-gray-800 hover:text-black font-medium transition">Acessórios</a></li>
+                            <li><a href="#" class="text-gray-800 hover:text-black font-medium transition">Ofertas</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                
+                <div class="flex items-center space-x-8">
+                    <form class="hidden md:flex items-center bg-gray-100 rounded-full px-4 py-2 focus-within:ring-2 focus-within:ring-black">
+                        <input type="text" placeholder="Buscar produtos..." class="bg-transparent border-none focus:outline-none w-64">
+                        <button type="submit" class="text-gray-500 hover:text-black">
+                            <i data-feather="search"></i>
+                        </button>
+                    </form>
+                    
+                    <div class="flex items-center space-x-6">
+                        <a href="login.html" class="text-gray-700 hover:text-black">
+                            <i data-feather="user"></i>
+                        </a>
+                        <button class="text-gray-700 hover:text-black transition-transform hover:scale-110">
+                            <i data-feather="shopping-bag" class="w-6 h-6"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Breadcrumb -->
+    <div class="container mx-auto px-4 py-4">
+        <div class="flex items-center text-sm text-gray-600">
+            <a href="#" class="hover:text-black">Home</a>
+            <span class="mx-2">/</span>
+            <span class="text-black">Masculino</span>
+        </div>
+    </div>
+
+    <!-- Título e contador -->
+    <div class="container mx-auto px-4 py-6">
+        <h1 class="text-3xl font-bold mb-2">MASCULINO</h1>
+        <p class="text-gray-600">Exibindo 145 resultados de 332</p>
+    </div>
+
+    <!-- Filtros e ordenação -->
+    <div class="container mx-auto px-4 py-4 bg-white border-t border-b border-gray-200">
+        <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+            <div class="flex items-center gap-4">
+                <h3 class="font-medium">Filtros de categoria</h3>
+                <div class="flex flex-wrap gap-2">
+                    <button class="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200">Camisetas</button>
+                    <button class="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200">Calças</button>
+                    <button class="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200">Camisas</button>
+                    <button class="px-3 py-1 bg-gray-100 rounded-full text-sm hover:bg-gray-200">Jaquetas</button>
+                </div>
+            </div>
+            
+            <div class="flex items-center gap-4">
+                <h3 class="font-medium">Ordenar por</h3>
+                <select class="px-3 py-1 border border-gray-300 rounded-md text-sm focus:outline-none focus:ring-2 focus:ring-black">
+                    <option>Mais relevantes</option>
+                    <option>Menor preço</option>
+                    <option>Maior preço</option>
+                    <option>Mais vendidos</option>
+                </select>
+            </div>
+        </div>
+    </div>
+
+    <!-- Grid de produtos -->
+    <section class="py-10">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Produto 1 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-200 flex items-center justify-center">
+                        <span class="text-gray-500 font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Camiseta Tommy Hilfiger Manga Longa Lisa Masculina Preta</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 99,99</span>
+                            <p class="text-xl font-bold">R$ 70,00 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 60,00 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">4 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produto 2 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-100 flex items-center justify-center">
+                        <span class="text-gray-500 font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Camisa Tommy Hilfiger Manga Longa Lisa Masculina Branca</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 99,99</span>
+                            <p class="text-xl font-bold">R$ 70,00 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 60,00 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">4 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produto 3 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-300 flex items-center justify-center">
+                        <span class="text-gray-500 font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Calça Max Dentin Sarja Slim Masculina Branca</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 140,99</span>
+                            <p class="text-xl font-bold">R$ 142,50 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 57,50 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">5 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produto 4 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-400 flex items-center justify-center">
+                        <span class="text-gray-500 font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Camisa Tommy Hilfiger Xadrez Manga Longa Masculina</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 99,99</span>
+                            <p class="text-xl font-bold">R$ 70,00 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 60,00 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">3 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produto 5 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-500 flex items-center justify-center">
+                        <span class="text-white font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Jaqueta Crocker Masculina Arela Escura</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 273,90</span>
+                            <p class="text-xl font-bold">R$ 265,00 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 40,00 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">3 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produto 6 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-600 flex items-center justify-center">
+                        <span class="text-white font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Camiseta Nike Dry-Fit Masculina Azul</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 89,99</span>
+                            <p class="text-xl font-bold">R$ 65,00 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 55,00 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">4 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produto 7 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-700 flex items-center justify-center">
+                        <span class="text-white font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Calça Jeans Levi's 511 Slim Masculina</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 199,99</span>
+                            <p class="text-xl font-bold">R$ 159,00 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 53,00 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">5 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- Produto 8 -->
+                <div class="product-hover bg-white rounded-xl overflow-hidden shadow-md transition-all duration-300">
+                    <div class="h-64 bg-gray-800 flex items-center justify-center">
+                        <span class="text-white font-bold">Imagem do Produto</span>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-lg font-bold mb-2">Moletom Adidas Essentials Masculino</h3>
+                        <div class="mb-4">
+                            <span class="price-original">R$ 179,99</span>
+                            <p class="text-xl font-bold">R$ 129,00 no PIX</p>
+                            <p class="text-sm text-gray-600">Toc de R$ 64,50 s/juros</p>
+                        </div>
+                        <p class="text-sm text-gray-600 mb-4">4 tamanhos</p>
+                        <a href="#" class="inline-block bg-black text-white font-bold py-2 px-6 rounded-full hover:bg-gray-800 transition w-full text-center">
+                            Comprar
+                        </a>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Paginação -->
+            <div class="flex justify-center mt-12">
+                <nav class="flex items-center space-x-2">
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">Anterior</a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-black text-white">1</a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">2</a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">3</a>
+                    <span class="px-3 py-2 text-gray-500">...</span>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">10</a>
+                    <a href="#" class="px-3 py-2 rounded-md bg-gray-200 text-gray-700 hover:bg-gray-300">Próxima</a>
+                </nav>
+            </div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="py-16 bg-black text-white">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-3xl font-bold mb-4">Receba nossas novidades</h2>
+            <p class="mb-8 max-w-2xl mx-auto">Cadastre-se para receber promoções exclusivas e as últimas tendências da moda.</p>
+            <form class="max-w-md mx-auto flex">
+                <input type="email" placeholder="Seu melhor e-mail" class="flex-grow px-4 py-3 rounded-l-full focus:outline-none text-black">
+                <button type="submit" class="bg-red-500 hover:bg-red-600 px-6 py-3 rounded-r-full font-bold transition">
+                    Cadastrar
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">G-TEAM</h3>
+                    <p class="mb-4">Sua loja de confiança para moda e acessórios de qualidade.</p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="hover:text-red-500 transition">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="hover:text-red-500 transition">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="hover:text-red-500 transition">
+                            <i data-feather="twitter"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Institucional</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500 transition">Sobre nós</a></li>
+                        <li><a href="#" class="hover:text-red-500 transition">Nossas lojas</a></li>
+                        <li><a href="#" class="hover:text-red-500 transition">Trabalhe conosco</a></li>
+                        <li><a href="#" class="hover:text-red-500 transition">Termos e condições</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Ajuda</h3>
+                    <ul class="space-y-2">
+                        <li><a href="#" class="hover:text-red-500 transition">Como comprar</a></li>
+                        <li><a href="#" class="hover:text-red-500 transition">Prazos de entrega</a></li>
+                        <li><a href="#" class="hover:text-red-500 transition">Política de trocas</a></li>
+                        <li><a href="#" class="hover:text-red-500 transition">Perguntas frequentes</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contato</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i data-feather="phone" class="mr-2"></i>
+                            (11) 9999-9999
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="mail" class="mr-2"></i>
+                            contato@gteam.com.br
+                        </li>
+                        <li class="flex items-center">
+                            <i data-feather="map-pin" class="mr-2"></i>
+                            Av. Paulista, 1000 - São Paulo/SP
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center">
+                <p>&copy; 2023 G-TEAM - Todos os direitos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+        
+        // Mobile menu toggle functionality
+        const menuButton = document.querySelector('button[aria-label="menu"]');
+        const mobileMenu = document.querySelector('#mobile-menu');
+        
+        if (menuButton && mobileMenu) {
+            menuButton.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+        }
+        
+        // Simple cart animation
+        const cartButton = document.querySelector('.cart-pulse');
+        if (cartButton) {
+            cartButton.addEventListener('click', () => {
+                cartButton.classList.add('animate-ping');
+                setTimeout(() => {
+                    cartButton.classList.remove('animate-ping');
+                }, 500);
+            });
+        }
+    </script>
+</body>
+</html>
